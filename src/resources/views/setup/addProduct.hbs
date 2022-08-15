@@ -1,0 +1,53 @@
+<div
+  class='create-product w-100 vh-100 d-flex align-items-center justify-content-center flex-column'
+>
+  <h3>Add new flavors in flavors page</h3>
+  <form class='' style='width: 70%' method='POST' action='/auth/add-product'>
+    <div class='mb-3'>
+      <label for='exampleInputEmail1' class='form-label'>Name of flavors</label>
+      <input
+        type='text'
+        class='form-control'
+        name='name'
+        id='exampleInputEmail1'
+        aria-describedby='emailHelp'
+      />
+    </div>
+    <div class='mb-3'>
+      <label for='exampleInputEmail1' class='form-label'>Description</label>
+      <input
+        type='text'
+        class='form-control'
+        name='description'
+        id='exampleInputEmail1'
+        aria-describedby='emailHelp'
+      />
+    </div>
+    <div class='mb-3'>
+      <label for='exampleInputEmail1' class='form-label'>Prices</label>
+      <input
+        type='text'
+        class='form-control'
+        name='prices'
+        id='exampleInputEmail1'
+        aria-describedby='emailHelp'
+      />
+    </div>
+    <div class='mb-3'>
+      <label for='exampleInputEmail1' class='form-label'>Image link</label>
+      <input
+        type='text'
+        class='form-control'
+        name='img'
+        id='exampleInputEmail1'
+        aria-describedby='emailHelp'
+      />
+    </div>
+    <div class='mb-3'>
+      <label for='exampleInputEmail1' class='form-label'>Flavors Daily (Check if
+        it true)</label>
+      <input type='checkbox' name='flavorsDaily' value='true' checked />
+    </div>
+    <button type='submit' class='btn btn-primary'>ADD</button>
+  </form>
+</div>

@@ -1,0 +1,71 @@
+<header>
+  <div
+    class='container-header d-flex flex-row align-items-center justify-content-between'
+  >
+    <div class='menu h-100'>
+      <ul
+        class='menu-items d-flex flex-row align-items-center justify-content-center h-100'
+      >
+        <a href='/flavors'><li class='item'>flavors</li></a>
+        <a href='/order'><li class='item'>order online</li></a>
+        <a href=''><li class='item'>book an event</li></a>
+        <a href='/about'><li class='item'>about</li></a>
+      </ul>
+    </div>
+    <span class='logo'>Gelata</span>
+    <div
+      class='account-users d-flex flex-row align-items-center justify-content-center h-100'
+    >
+      <div
+        class='users-login d-flex flex-row align-items-center justify-content-center h-100 me-5'
+      >
+        {{#if inforUser.userid}}
+          <a
+            href='#'
+            class='btn-login-menu d-flex flex-row align-items-center justify-content-center me-4 h-100 btn-logout'
+          >
+            <ion-icon
+              class='h-100 d-flex flex-row align-items-center justify-content-center'
+              name='person-circle-outline'
+            ></ion-icon>
+            <span
+              class='td ms-2 h-100 d-flex flex-row align-items-center justify-content-center'
+            >
+              {{inforUser.username}}
+              <ion-icon
+                name='log-out-outline'
+                class='text-dark ms-2 d-flex flex-row align-items-center justify-content-center'
+                style='width: 20px; height: 20px'
+              ></ion-icon>
+            </span>
+          </a>
+        {{else}}
+          <a
+            href='/auth/login'
+            class='btn-login-menu d-flex flex-row align-items-center justify-content-center me-4 h-100'
+          >
+            <ion-icon
+              class='h-100 d-flex flex-row align-items-center justify-content-center'
+              name='person-circle-outline'
+            ></ion-icon>
+            <span
+              class='td ms-2 h-100 d-flex flex-row align-items-center justify-content-center'
+            >
+              Login
+            </span>
+          </a>
+        {{/if}}
+        <div
+          class='social-page d-flex flex-row align-items-center justify-content-center'
+        >
+          <ion-icon name='logo-facebook'></ion-icon>
+          <ion-icon name='logo-twitter'></ion-icon>
+          <ion-icon name='logo-instagram'></ion-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<form action='/auth/logout' method='POST' hidden class='form-logout'></form>
+{{! script }}
+<script type='text/javascript' src='/public/javascript/showLogout.js'></script>

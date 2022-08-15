@@ -1,0 +1,463 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Black+Ops+One&family=Edu+VIC+WA+NT+Beginner:wght@500;600&family=Fjalla+One&family=Mochiy+Pop+One&family=Poppins&family=Short+Stack&family=Supermercado+One&family=Alumni+Sans+Inline+One&family=Poppins:wght@300&display=swap');
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+/*  
+	>> FONTS:
+	font-family: 'Bebas Neue', cursive;
+    font-family: 'Edu VIC WA NT Beginner', cursive;
+    font-family: 'Mochiy Pop One', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Fjalla One', sans-serif;
+    font-family: 'Black Ops One', cursive;
+    font-family: 'Supermercado One', cursive;
+    font-family: 'Short Stack', cursive;
+    font-family: 'Alumni Sans Inline One', cursive;
+ */
+body{
+	font-family: 'Poppins', sans-serif;
+}
+/* exclude default */
+a{
+	text-decoration: none;
+}
+ul{
+	list-style: none;
+}
+/* css header start */
+.container-header{
+	z-index: 1;
+	user-select: none;
+	position: relative;
+	width: 100%;
+	height: 60px;
+	background-color: #fdcb6e;
+}
+.menu-items .item{
+	transition: all 0.15s linear;
+	text-transform: uppercase;
+	color: #2d3436;
+	padding: 5px 12px;
+	font-size: 12px;
+	font-family: 'Mochiy Pop One', sans-serif;
+}
+.logo{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-family: 'Edu VIC WA NT Beginner', cursive;
+	font-weight: bold;
+	font-size: 35px;
+}
+.btn-login-menu{
+	font-family: 'Edu VIC WA NT Beginner', cursive;
+	color: #2d3436;
+	font-size: 20px;
+	transition: all 0.15s linear;
+}
+.btn-login-menu ion-icon{
+	width: 35px;
+	height: 35px;
+}
+.menu-items .item:hover,
+.social-page ion-icon:hover,
+.btn-login-menu:hover{
+	color: rgba(0,0,0,0.4);
+}
+.btn-login-menu:hover span{
+	text-decoration: underline;
+}
+.social-page ion-icon{
+	padding: 5px 5px;
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+}
+/* css header end */
+/* css home page start */
+.home{
+	overflow: hidden;
+	z-index: 1;
+	position: relative;
+	background: transparent;
+}
+.introduce-1{
+	user-select: none;
+	font-family: 'Black Ops One', cursive;
+	background-color: #fdcb6e;
+	background-image: url('/public/imgs/84770f_bdcc40e3b5ce45f4b672692e83f4917b~mv1.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	color: #fff;
+}
+.introduce-1 .title-small{
+	font-family: 'Short Stack', cursive;
+	font-weight: bold;
+}
+.introduce-1 .title-big{
+	letter-spacing: 20px;
+	font-weight: bold;
+	font-size: 150px;
+}
+.btn-menu{
+	font-family: 'Short Stack', cursive;
+	padding: 0 5px;
+	min-width: 100px;
+	height: 40px;
+	background: transparent;
+	border: 2px solid #fff;
+	color: #fff;
+}
+.btn-menu:hover{
+	transition: all 0.5s linear;
+	background: #2d3436;
+	color: #fff;
+	border-color: #2d3436;
+}
+.illustration{
+	background-image: url('/public/imgs/a35a7632c8d24cec95168160ed32c8ad.jpg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.btn-menu-2:hover{
+	color: #fff !important;
+}
+.title-1{
+	font-family: 'Short Stack', cursive;
+	font-weight: bold;
+}
+.title-2{
+	font-family: 'Edu VIC WA NT Beginner', cursive;
+	font-weight: bold;
+}
+.bg{
+	z-index: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	background: #badc58;
+	background-image: url('/public/imgs/baac51_809fe275413a451fbe5e2904700e26ea.png');
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.background-2{
+	background: transparent;
+}
+.background-3{
+	background-image: url('/public/imgs/84770f_9a956bbd2dda4af5b1ec35c35d26c07b~mv2_d_3840_2160_s_2.jpg');
+	background-position: center;
+	background-size: cover;
+}
+.background-4{
+	background-image: url('/public/imgs/84770f_8c082b56536d46e3b1787cc8ce63187c~mv2.jpg');
+	background-position: center;
+	background-size: cover;
+}
+.ice-cream-bg{ 
+	background-color: #c7ecee; 
+	height: 120vh;
+	background-image: url('https://static.wixstatic.com/media/baac51_863daade1baf47a8995907cb1f24d57c.png/v1/fill/w_1349,h_780,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/baac51_863daade1baf47a8995907cb1f24d57c.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.ice-cream-bg img{ 
+	width: 1349px;
+	object-fit: cover;
+	object-position: 50% 50%;
+}
+.slide{
+	margin: 0;
+	padding: 0;
+	position: relative;
+	width: 100%;
+	height: 300px;
+	transition: all 0.5s linear;
+}
+.view-slide{
+	transition: all 0.5s ease;
+	width: auto;
+	height: 300px;
+	position: absolute;
+	display: flex;
+}
+.img-slide{
+	width: 300px;
+	height: 300px;
+	object-fit: cover;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.slide ion-icon{
+	z-index: 2;
+	width: 20px;
+	height: 20px;
+	padding: 10px;
+	color: #000;
+	border-radius: 50%;
+	background-color: #FFF;
+	position: absolute;
+	font-size: 10px;
+	cursor: pointer;
+	background-color: rgba(255,255,255,0.5);
+}
+.slide ion-icon:hover{
+	transition: 0.25s linear;
+	background-color: #FFF;
+}
+.slide .icon-back{
+	top: 50%;
+	left: 20px;
+	transform: translate(0, -50%); 
+}
+.slide .icon-next{
+	top: 50%;
+	right: 20px;
+	transform: translate(0, -50%); 
+}
+.disable-btn{
+	background-color: rgba(255,255,255,0.5) !important;
+}
+/* css home page end */
+/* css footer start */
+.container-footer {
+	position: relative;
+	z-index: 1;
+	user-select: none;
+	height: 400px;
+	background-color: #000;
+	padding: 50px 100px;
+}
+.container-footer .info-shop{
+	width: 80%;
+	height: 400px;
+	color: #2d3436;
+}
+.social-media ion-icon{
+	margin: 0 10px;
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+.title-info{
+	text-transform: uppercase;
+}
+.ahover:hover{
+	color: #fff !important;
+	transition: 0.25s ease;
+}
+.btn-footer-hover:hover{
+	background: #fff !important;
+	color: #2d3436 !important;
+	border-color: #fff !important;
+}
+.email-input{
+	border: none;
+	outline: none;
+	padding: 5px 10px;
+	border: 2px solid #2d3436;
+	background-color: rgba(255,255,255,0.5);
+}
+.email-input:focus{
+	transition: 0.5s linear;
+	background-color: #FFF;
+}
+/* css footer end */
+/* css login page start */
+.divider:after,
+.divider:before {
+	content: "";
+	flex: 1;
+	height: 1px;
+	background: #eee;
+}
+.h-custom {
+	height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+	.h-custom {
+		height: 100%;
+	}
+}
+
+/* css Flavors page start */
+.flavors-container .introduce-1{
+	background-image: url('https://static.wixstatic.com/media/baac51_46dddda70b714461bbd181f2ceae9aed.jpg/v1/fill/w_1287,h_650,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/baac51_46dddda70b714461bbd181f2ceae9aed.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100vh;
+}
+.flavors{
+	margin-top: 100px;
+}
+.flavors p{
+	font-size: 25px ;
+}
+.flavors-item{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	font-family: 'Edu VIC WA NT Beginner', cursive;
+	margin-bottom: 50px;
+}
+.flavors-item .items{
+	width: 80%;
+	flex-wrap: wrap;
+}
+.flavors-item .items .item{
+	width: 30%;
+}
+.flavors-item .items .item .des-item{
+	font-size: 16px;
+	text-align: center;
+	font-family: 'Poppins', sans-serif;
+	
+}
+.flavors-item .items .item .prices{
+	font-family: 'Poppins', sans-serif;
+}
+/* css Flavors page end */
+/* css order page start */
+.order{
+	width: 100%;
+	padding: 0 120px;
+	position: relative;
+}
+.order-header{
+	top: 0;
+	left: 120px;
+	right: 120px;
+	position: absolute;
+	background-color: #fff;
+	height: 50px;
+	border-bottom: 1px solid #ccc;
+}
+.order-header .items{
+	height: 50px;
+	padding: 0;
+	margin: 0;
+}
+.order-header .items .item{
+	padding: 0 10px;
+	position: relative;
+	text-transform: uppercase;
+	height: 50px;
+}
+.order-header .items .item a{
+	color: #000;
+}
+.order-header .items .item p{
+	margin: 0;
+	padding: 0;
+}
+.order-header .items .item:hover .border-bt{
+	transition: all 0.2s linear;
+	height: 3px !important;
+}
+.customer-cart{ 
+	cursor: pointer;
+	height: 100%;
+	color: #fff;
+	width: 100px;
+	background: #2d3436; 
+}
+.customer-cart p{
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: 0 5px;
+}
+.customer-cart ion-icon{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 24px;
+	height: 24px;
+	padding: 0 5px;
+}
+.child-list{
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(auto-fill, minmax(458px, 1fr));
+	justify-items: stretch;
+	margin-top: 24px;
+	padding-bottom: 24px;
+}
+.this-border-color:hover{
+	transition: border 0.5s ease;
+	border-color: #2d3436 !important;
+	cursor: pointer;
+}
+.order-header.changePosition{
+	transition: all 0.5s ease;
+	position: fixed !important;
+	right: 0 !important;
+	top: 0 !important;
+	left: 0 !important;  
+}
+
+.view-select-product{
+	display: none ;
+	transition: all 0.25s ease; 
+	animation: slidedown 0.5s ease;
+	width: 500px; 
+	height: 500px; 
+	padding-bottom: 60px; 
+	z-index: 4; 
+	top: 50%; 
+	left: 50%; 
+	transform: translate(-50%, -50%);
+	box-shadow: 3px 2px 6px 2px rgba(0,0,0,0.3);
+}
+
+@keyframes slidedown {
+	0% {transform: translate(-50%,-120%);}
+	100%{transform: translateY(-50%,-50%);}
+}
+
+.active{
+	background: #feca57 !important;
+	color: #FFF !important;
+}
+.list-product-added-item:hover{
+	transition: 0.5s linear;
+	background: rgba(0,0,0,0.1) !important;
+}
+.btn-checkout:hover{
+	transition: 0.25s linear;
+	opacity: 0.8;
+}
+.customer-cart-view{
+	display: none;
+}
+.view-cart{
+	animation: slideRight 1s ease;
+}
+@keyframes slideRight{
+	from {
+		transform : translate(200%, 0);
+	}
+	to {
+		transform : translate(0, 0);
+	}
+}
+.list-product-bill,
+.list-product-added{
+	scrollbar-width: none !important;
+}
+/* css order page end */
+/*css check out page start */
+.check-out p{
+	padding: 0;
+	margin: 0;
+}
+/*css check out page end */

@@ -5,7 +5,9 @@
   "main": "src/index.js",
   "type": "commonjs",
   "scripts": {
-    "dev": "nodemon --inspect src/index.js",
+    "dev": "nodemon --ext *",
+    "server": "nodemon --inspect src/index.js",
+    "format": "prettier-eslint --tab-width  --single-quote  --write \"src/**/*.{js,json,hbs}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "NguyenTienDat098 <datga2442004@gmail.com>",
@@ -15,10 +17,21 @@
     "url": "https://github.com/NguyenTienDat098/project-sales-website.git"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.20.0",
+    "connect-mongo": "^4.6.0",
     "express": "^4.18.1",
-    "express-handlebars": "^6.0.6"
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "mongoose": "^6.4.6",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^7.1.2"
   },
   "devDependencies": {
-    "nodemon": "^2.0.19"
+    "connect-livereload": "^0.6.1",
+    "livereload": "^0.9.3",
+    "nodemon": "^2.0.19",
+    "prettier-eslint-cli": "^6.0.1"
   }
 }

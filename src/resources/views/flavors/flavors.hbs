@@ -1,0 +1,42 @@
+<div class="flavors-container w-100">
+	<div class='introduce-1 w-100 d-flex align-items-center flex-column justify-content-center text-uppercase'>
+		<p class='title-small fs-1'>OUR</p>
+		<h3 class='title-big'>FLAVORS</h3>
+	</div>
+	<div class="flavors w-100 d-flex flex-column align-items-center">
+		<p class="mb-5">FLAVORS</p>
+		<div class="flavors-item">
+			<h3 class="title-flavors-item mb-3 fw-bold fs-1">
+				ICE CREAM FLAVORS
+			</h3>
+			<p class="border-bottom border-2 border-dark" style="width: 10%; height: 2px;"></p>
+			<div class="items d-flex justify-content-around">
+        {{#each flavorsIceCream}}
+        <div class="item d-flex justify-content-center flex-column align-items-center">
+          <img src="{{this.img}}" alt="" class="img-item">
+          <p class="name-item fw-bold">{{this.name}}</p>
+          <p class="border-bottom border-2 border-dark" style="width: 80%; height: 2px;"></p>
+          <p class="des-item">{{this.description}}</p>
+          <p class="prices">${{this.prices}}</p>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    <div class="flavors-item">
+     <h3 class="title-flavors-item mb-3 fw-bold fs-1">
+      DAIRY FREE FLAVORS
+    </h3>
+    <p class="border-bottom border-2 border-dark" style="width: 10%; height: 2px;"></p>
+    <div class="items d-flex justify-content-around">
+      {{#each flavorsIceDaily}}
+      <div class="item d-flex justify-content-center flex-column align-items-center">
+        <img src="{{this.img}}" alt="" class="img-item">
+        <p class="name-item fw-bold">{{this.name}}</p>
+        <p class="border-bottom border-2 border-dark" style="width: 80%; height: 2px;"></p>
+        <p class="des-item">{{this.description}}</p>
+        <p class="prices">${{this.prices}}</p>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
