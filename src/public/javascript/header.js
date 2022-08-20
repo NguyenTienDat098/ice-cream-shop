@@ -6,17 +6,6 @@ window.addEventListener('DOMContentLoaded', function (e) {
   const btnCloseMenuMobile = document.querySelector('.close-menu-mobile');
   const userItem = document.querySelector('.dropdown');
 
-  if (window.location.href.indexOf('home') > -1) {
-    console.log(true);
-    userItem.style.display = 'none';
-  } else if (window.location.href.indexOf('flavors') > -1) {
-    console.log(true);
-    userItem.style.display = 'none';
-  } else {
-    console.log(false);
-    userItem.style.display = 'flex';
-  }
-
   if (btnLogout) {
     btnLogout.forEach((e, i) => {
       e.onclick = (evt) => {
