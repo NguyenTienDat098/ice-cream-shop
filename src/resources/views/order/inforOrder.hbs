@@ -1,0 +1,96 @@
+<div class='check-out d-flex justify-content-between' style='padding: 20px 120px'>
+  <div class='get-infor' style='width: 68%'>
+    <p class='title-checkout mt-4 mb-4 h3 text-center'>
+      Order Information
+    </p>
+    <div class='delivery-method border-top border-2 border-dark' style='padding: 20px 0'>
+      <p class='title-delivery-method h3'>
+        1.Delivery Method
+      </p>
+      {{#if deliveryMethod}}
+      <div class='method-2 mt-4 mb-4'>
+        <p class='h6 fw-bold'>Home delivery</p>
+        <p>Within a radius of 20km from the store</p>
+      </div>
+      {{else}}
+      <div class='method-1 mt-4 mb-4'>
+        <p class='h6 fw-bold'>Pickup from</p>
+        <p>500 Terry Francois Street, San Francisco, CA, USA</p>
+      </div>
+      {{/if}}
+    </div>
+    <div class='contact-information border-top border-2 border-dark' style='padding: 20px 0'>
+      <p class='title-delivery-method h3'>
+        2.Contact Information
+      </p>
+      <div class='mt-4 mb-2'>
+        <div class='nameCustomer'>
+          <p class='customerName'>
+            Your Name:
+            {{bills.firstName}}
+            {{bills.lastName}}</p>
+        </div>
+        <div class='addressAndPhone'>
+          <p class='address'>Your adress: {{bills.address}}</p>
+          <p class='phone'>Your phone number: {{bills.phoneNumber}}</p>
+        </div>
+      </div>
+    </div>
+    <div class='payment-method border-top border-2 border-dark' style='padding: 20px 0'>
+      <p class='title-delivery-method h3'>
+        3.Payment Method
+      </p>
+      {{#if paymentMethod}}
+      <div class='method-2 mt-4 mb-4'>
+        <p class='h6 fw-bold'>Payment on delivery</p>
+        <p>You will pay when you receive the goods</p>
+      </div>
+      {{/if}}
+      <p class='text-danger mt-2'>
+        We will check and contact you with
+        your phone number as soon as we receive your order, after 24 hours if we cannot contact you, your order will be
+        cancelled.
+      </p>
+    </div>
+  </div>
+  <div class='bill d-flex justify-content-center' style='width: 28%'>
+    <div
+      class='view-bill mt-4 p-3 border border-1 border-dark w-100 d-flex align-items-center flex-column position-relative'
+      style='height: 520px;'>
+      <p class='h3'>My Order</p>
+      <p class='code-order'>Code: {{bills.code}}</p>
+      <div class='list-product-bill d-flex align-items-center justify-content-between p-2 w-100 fs-6 flex-column pb-4'
+        style='overflow-y: scroll;'>
+        {{#each productsOrder}}
+        <div class='product-bill d-flex align-items-center justify-content-between w-100 mt-2 mb-2'>
+          <p class='amounts-product-bill'>x{{this.amounts}}</p>
+          <p class='name-product-bill'>{{this.name}}</p>
+          <p class='total-prices-product-bill'>${{this.prices}}</p>
+        </div>
+        {{/each}}
+      </div>
+      <div
+        class='total-bill-container position-absolute p-2 w-100 d-flex align-items-center justify-content-between fs-5 bg-white'
+        style="bottom: 0; left: 0; font-family: 'Poppins', sans-serif; font-weight: 500; border-top: 1px solid #ccc">
+        <p>Total</p>
+        <p class='total-bill'>$0</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class='delivery-process d-flex align-items-center justify-content-center mt-4 mb-4 flex-column w-100'>
+  <p class='h3 title-delivery-process' data-bs-whatever='{{bills.processDelivery}}'>Delivery Process</p>
+  <div class='process d-flex align-items-center justify-content-between' style='width: 50%;'>
+    <ion-icon name='bag-check-outline' style='font-size: 25px; padding: 5px;' class='icon-process processDone rounded'>
+    </ion-icon>
+    <div class='solid'></div>
+    <ion-icon name='car-sport-outline' style='font-size: 25px; padding: 5px; ' class='icon-process rounded'>
+    </ion-icon>
+    <div class='solid'></div>
+    <ion-icon name='cash-outline' style='font-size: 25px; padding: 5px;' class='icon-process rounded'></ion-icon>
+    <div class='solid'></div>
+    <ion-icon name='checkbox-outline' style='font-size: 25px; padding: 5px;' class='icon-process rounded'></ion-icon>
+  </div>
+</div>
+{{! script }}
+<script type='text/javascript' src='/public/javascript/inforOrder.js'></script>
