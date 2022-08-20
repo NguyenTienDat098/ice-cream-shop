@@ -4,10 +4,13 @@ const router = express.Router();
 const { userInfor } = require('../app/models/Users');
 
 router.get('/flavors', siteController.flavors);
-router.post('/order/checkout', userInfor, siteController.getBill);
+router.post('/customer-orders/:code/edit', siteController.HandleEditCustomerOrder);
+router.get('/customer-orders/:code/edit', siteController.editCustomerOrder);
+router.get('/customer-orders', userInfor, siteController.customerOrder);
+router.get('/order-information/:code', userInfor, siteController.getInforOrder);
+router.post('/order/checkout', userInfor, siteController.saveBill);
 router.get('/order/checkout', userInfor, siteController.checkout);
-router.post('/order/:item', userInfor, siteController.saveProductOrder);
 router.post('/order', userInfor, siteController.saveProductOrder);
-router.get('/order', siteController.orderProduct);
+router.get('/order', userInfor, siteController.orderProduct);
 router.get('/', siteController.home);
 module.exports = router;

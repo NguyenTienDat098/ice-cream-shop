@@ -5,8 +5,8 @@ const authController = require('../app/Controllers/AuthController');
 const { Users, isLoggedOut, userInfor } = require('../app/models/Users');
 const session = require('express-session');
 
-/*
-	>> handle when user login >>
+/*/
+  >> handle when user login >>
 */
 
 router.get('/login', isLoggedOut, (req, res) => {
@@ -20,13 +20,13 @@ router.get('/login', isLoggedOut, (req, res) => {
 router.post(
   '/login',
   passport.authenticate('local', {
-    successRedirect: '/',
+    successRedirect: '/order',
     failureRedirect: '/auth/login?error=true',
   })
 );
 
 /*
-	>> handle when user register
+  >> handle when user register
 */
 router.post('/signup', authController.saveRegister);
 router.get('/signup', authController.register);
@@ -41,4 +41,5 @@ router.get('/add-product', authController.addProduct);
   >> user logout 
 */
 router.post('/logout', authController.logout);
+router.get('/logout', authController.getlogout);
 module.exports = router;

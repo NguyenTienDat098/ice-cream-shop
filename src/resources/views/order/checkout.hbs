@@ -1,129 +1,85 @@
 <form action='/order/checkout' method='POST' class='form-submit-order'>
-  <div
-    class='check-out d-flex justify-content-between'
-    style='padding: 20px 120px'
-  >
+  <div class='check-out d-flex justify-content-between' style='padding: 20px 120px'>
     <div class='get-infor' style='width: 68%'>
-      <h3 class='title-checkout mt-4 mb-4 h2'>
+      <h3 class='title-checkout mt-4 mb-4 h2 text-center'>
         Checkout
       </h3>
-      <div
-        class='delivery-method border-top border-2 border-dark'
-        style='padding: 20px 0'
-      >
+      <div class='delivery-method border-top border-2 border-dark' style='padding: 20px 0'>
         <h3 class='title-delivery-method'>
           1.Delivery Method
         </h3>
         <div class='method-1 mt-4 mb-4'>
           <p class='h6 fw-bold'>Pickup from</p>
           <p>500 Terry Francois Street, San Francisco, CA, USA</p>
-          <input type='checkbox' value='1' name='delivery method' />
+          <input type='checkbox' value='1' name='deliveryMethod' />
         </div>
         <div class='method-2 mt-4 mb-4'>
           <p class='h6 fw-bold'>Home delivery</p>
           <p>Within a radius of 20km from the store</p>
-          <input type='checkbox' value='2' name='delivery method' />
+          <input type='checkbox' value='2' name='deliveryMethod' />
         </div>
       </div>
-      <div
-        class='contact-information border-top border-2 border-dark'
-        style='padding: 20px 0'
-      >
+      <div class='contact-information border-top border-2 border-dark' style='padding: 20px 0'>
         <h3 class='title-delivery-method'>
           2.Contact Information
         </h3>
         <div class='input-group mt-4 mb-2'>
           <span class='input-group-text'>First and last name</span>
-          <input
-            type='text'
-            aria-label='First name'
-            class='form-control'
-            placeholder='First Name'
-            name='firstname'
-          />
-          <input
-            type='text'
-            aria-label='Last name'
-            class='form-control'
-            placeholder='Last Name'
-            name='lastname'
-          />
+          <input type='text' aria-label='First name' class='form-control' placeholder='First Name' name='firstname'
+            value='{{currentInforCustomer.firstName}}' />
+          <input type='text' aria-label='Last name' class='form-control' placeholder='Last Name' name='lastname'
+            value='{{currentInforCustomer.lastName}}' />
         </div>
         <div class='input-group mt-2 mb-4'>
           <span class='input-group-text'>Address and Phone number</span>
-          <input
-            type='text'
-            aria-label='Address'
-            class='form-control'
-            placeholder='Address'
-            name='address'
-          />
-          <input
-            type='number'
-            aria-label='Phone number'
-            class='form-control'
-            placeholder='Phone number'
-            name='phonenumber'
-          />
+          <input type='text' aria-label='Address' class='form-control' placeholder='Address' name='address'
+            value='{{currentInforCustomer.address}}' />
+          <input type='number' aria-label='Phone number' class='form-control' placeholder='Phone number'
+            name='phonenumber' value='{{currentInforCustomer.phoneNumber}}' />
         </div>
       </div>
-      <div
-        class='payment-method border-top border-2 border-dark'
-        style='padding: 20px 0'
-      >
+      <div class='payment-method border-top border-2 border-dark' style='padding: 20px 0'>
         <h3 class='title-delivery-method'>
           3.Payment Method
         </h3>
         <div class='method-1 mt-4 mb-4'>
-          <p class='h6 fw-bold'>Pay Now</p>
-          <p>Please transfer to this Bank Account : </p>
-          <p>InforAccount : Name of bank: VietComeBank, STT: 1234455656</p>
-          <p>Money transfer syntax : "your name","your phone number","code
-            orders"</p>
-          <input type='checkbox' value='1' name='payment method' />
+          <p class='h6 fw-bold'>Pay Now (Coming Soon)</p>
+          <input type='checkbox' value='1' name='paymentMethod' hidden />
         </div>
         <div class='method-2 mt-4 mb-4'>
           <p class='h6 fw-bold'>Payment on delivery</p>
           <p>You will pay when you receive the goods</p>
-          <input type='checkbox' value='2' name='payment method' />
+          <input type='checkbox' value='2' name='paymentMethod' />
         </div>
-        <p class='text-danger mt-2'>Note : We will check and contact to you with
-          your phone number as soon as we receive . When you choose this payment
-          method</p>
+        <p class='text-danger mt-2'>
+          We will check and contact to you with
+          your phone number as soon as we receive order.
+        </p>
       </div>
-      <button
-        class='submit-order'
-        style='width: 150px; height: 45px; background-color: #fdcb6e; border:none; padding: 5px 10px; '
-      >Submit Order
+      <button class='submit-order'
+        style='width: 150px; height: 45px; background-color: #fdcb6e; border:none; padding: 5px 10px; '>Submit Order
       </button>
     </div>
     <div class='bill d-flex justify-content-center' style='width: 28%'>
       <div
         class='view-bill mt-4 p-3 border border-1 border-dark w-100 d-flex align-items-center flex-column position-relative'
-        style='height: 520px;'
-      >
+        style='height: 520px;'>
         <h3>My Order</h3>
-        <p class='code-order'>Code: 905690</p>
-        <div
-          class='list-product-bill d-flex align-items-center justify-content-between p-2 w-100 fs-6 flex-column pb-4'
-          style='overflow-y: scroll;'
-        >
-          {{#each order}}
-            <div
-              class='product-bill d-flex align-items-center justify-content-between w-100 mt-2 mb-2'
-            >
-              <p class='amounts-product-bill'>x4</p>
-              <p class='name-product-bill'>Name of product</p>
-              <p class='total-prices-product-bill'>$24</p>
-            </div>
+        <div class='list-product-bill d-flex align-items-center justify-content-between p-2 w-100 fs-6 flex-column pb-4'
+          style='overflow-y: scroll;'>
+          {{#each productsOrder}}
+          <div class='product-bill d-flex align-items-center justify-content-between w-100 mt-2 mb-2'>
+            <p class='amounts-product-bill'>x{{this.amounts}}</p>
+            <p class='name-product-bill'>{{this.name}}</p>
+            <p class='total-prices-product-bill'>${{this.prices}}</p>
+          </div>
           {{/each}}
         </div>
         <div
-          class='total-bill position-absolute p-2 w-100 d-flex align-items-center justify-content-between fs-5 bg-white'
-          style="bottom: 0; left: 0; font-family: 'Poppins', sans-serif; font-weight: 500; border-top: 1px solid #ccc"
-        >
+          class='total-bill-container position-absolute p-2 w-100 d-flex align-items-center justify-content-between fs-5 bg-white'
+          style="bottom: 0; left: 0; font-family: 'Poppins', sans-serif; font-weight: 500; border-top: 1px solid #ccc">
           <p>Total</p>
-          <p class='total-bill'>$10</p>
+          <p class='total-bill'>$0</p>
         </div>
       </div>
     </div>

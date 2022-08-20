@@ -3,41 +3,41 @@ window.addEventListener('DOMContentLoaded', function (e) {
    * VARIABLES
    * @type {[variable]}
    */
-   const products = document.querySelectorAll('.child-item');
-   const viewSelectProduct = document.querySelector('.view-select-product');
-   const btnCloseViewSelect = document.querySelector('.close-select-view');
-   const btnIncreaseAmounts = document.querySelector('.increase-number');
-   const btnDecreaseAmounts = document.querySelector('.decrease-number');
-   const amountsProduct = document.querySelector('.amounts-product');
-   const customerRequest = document.querySelector('.customer-requests');
-   const nameProductSelect = document.querySelector('.name-product-select');
-   const desProductSelect = document.querySelector('.des-product-select');
-   const amountsProductAdd = document.querySelector('.amounts-product-added');
-   const buttonAddProductSelect = document.querySelector(
+  const products = document.querySelectorAll('.child-item');
+  const viewSelectProduct = document.querySelector('.view-select-product');
+  const btnCloseViewSelect = document.querySelector('.close-select-view');
+  const btnIncreaseAmounts = document.querySelector('.increase-number');
+  const btnDecreaseAmounts = document.querySelector('.decrease-number');
+  const amountsProduct = document.querySelector('.amounts-product');
+  const customerRequest = document.querySelector('.customer-requests');
+  const nameProductSelect = document.querySelector('.name-product-select');
+  const desProductSelect = document.querySelector('.des-product-select');
+  const amountsProductAdd = document.querySelector('.amounts-product-added');
+  const buttonAddProductSelect = document.querySelector(
     '.btn-add-product-select'
-    );
-   const imgProductSelect = document.querySelector('.img-product-select');
-   const customerCart = document.querySelector('.customer-cart');
-   const customerViewCart = document.querySelector('.customer-cart-view');
-   const buttonCloseViewCustomer = document.querySelector('.close-view-cart');
-   const formAddProduct = document.querySelector('.form-add-product');
-   const idProductOrder = document.querySelector('.id-product-order');
-   const amountsProductOrder = document.querySelector('.amounts-product-order');
-   const pricesProductOrder = document.querySelector('.prices-product-order');
-   const nameProductOrder = document.querySelector('.name-product-order');
-   const totalPrices = document.querySelector('.total-prices');
-   const btnCheckout = document.querySelector('.btn-checkout');
-   const listProductAdded = document.querySelector('.list-product-added');
-   const productAdded = parseFloat(
+  );
+  const imgProductSelect = document.querySelector('.img-product-select');
+  const customerCart = document.querySelector('.customer-cart');
+  const customerViewCart = document.querySelector('.customer-cart-view');
+  const buttonCloseViewCustomer = document.querySelector('.close-view-cart');
+  const formAddProduct = document.querySelector('.form-add-product');
+  const idProductOrder = document.querySelector('.id-product-order');
+  const amountsProductOrder = document.querySelector('.amounts-product-order');
+  const pricesProductOrder = document.querySelector('.prices-product-order');
+  const nameProductOrder = document.querySelector('.name-product-order');
+  const totalPrices = document.querySelector('.total-prices');
+  const btnCheckout = document.querySelector('.btn-checkout');
+  const listProductAdded = document.querySelector('.list-product-added');
+  const productAdded = parseFloat(
     document.querySelector('.amounts-product-added').textContent
-    );
+  );
 
   /**
    * Change Position when window scroll
    */
 
-   const orderHeader = document.querySelector('.order-header');
-   window.addEventListener('scroll', function (e) {
+  const orderHeader = document.querySelector('.order-header');
+  window.addEventListener('scroll', function (e) {
     if (window.scrollY >= 60) {
       orderHeader.classList.add('changePosition');
     } else {
@@ -49,14 +49,12 @@ window.addEventListener('DOMContentLoaded', function (e) {
    *  Show list order of customer form localstorage
    */
 
-   var order = [];
-   var amountsAdded = 0;
-   if (JSON.parse(localStorage.getItem('orders')).length !== 0) {
+  var order = [];
+  var amountsAdded = 0;
+  if (localStorage.getItem('orders') !== null) {
     showListOrder(JSON.parse(localStorage.getItem('orders')));
     order = JSON.parse(localStorage.getItem('orders'));
-
-    amountsAdded = JSON.parse(localStorage.getItem('orders'))[JSON.parse(localStorage.getItem('orders')).length - 1].amountsProductAdded;
-
+    amountsAdded = JSON.parse(localStorage.getItem('orders')).length;
     if (amountsAdded > 0) {
       amountsProductAdd.textContent = amountsAdded;
       customerCart.classList.add('active');
@@ -67,36 +65,36 @@ window.addEventListener('DOMContentLoaded', function (e) {
    *  Get Infor Product for add to Customer cart
    */
 
-   var idProduct = '';
-   var nameProduct = '';
-   var imgProduct = '';
-   var pricesProduct = 0;
+  var idProduct = '';
+  var nameProduct = '';
+  var imgProduct = '';
+  var pricesProduct = 0;
 
-   products.forEach((e, i) => {
+  products.forEach((e, i) => {
     e.addEventListener('click', function () {
       idProduct = e.getAttribute('data-bs-whatever');
       nameProduct =
-      document.getElementsByClassName('name-child-item')[i].textContent;
+        document.getElementsByClassName('name-child-item')[i].textContent;
       imgProduct = document
-      .getElementsByClassName('img-item')
-      [i].getAttribute('src');
+        .getElementsByClassName('img-item')
+        [i].getAttribute('src');
       pricesProduct = parseFloat(
         document.getElementsByClassName('prices')[i].textContent.substr(1)
-        );
+      );
 
       nameProductSelect.textContent =
-      document.getElementsByClassName('name-child-item')[i].textContent;
+        document.getElementsByClassName('name-child-item')[i].textContent;
       desProductSelect.textContent =
-      document.getElementsByClassName('des')[i].textContent;
+        document.getElementsByClassName('des')[i].textContent;
       imgProductSelect.setAttribute(
         'src',
         document.getElementsByClassName('img-item')[i].getAttribute('src')
-        );
+      );
       viewSelectProduct.style.display = 'flex';
     });
   });
 
-   btnCloseViewSelect.onclick = () => {
+  btnCloseViewSelect.onclick = () => {
     viewSelectProduct.style.display = 'none';
   };
 
@@ -120,8 +118,6 @@ window.addEventListener('DOMContentLoaded', function (e) {
     }$`;
   });
 
-  // fix here
-
   buttonAddProductSelect.onclick = () => {
     const idSelect = idProduct;
     var exists = false;
@@ -136,7 +132,6 @@ window.addEventListener('DOMContentLoaded', function (e) {
             imgProductOrder: imgProduct,
             amounts: order[i].amounts + currentAmount,
             prices: (order[i].amounts + currentAmount) * pricesProduct,
-            amountsProductAdded: amountsAdded
           };
           order[i] = item;
           localStorage.setItem('orders', JSON.stringify(order));
@@ -148,14 +143,13 @@ window.addEventListener('DOMContentLoaded', function (e) {
       });
 
       if (!exists) {
-        amountsAdded++ ;
+        amountsAdded++;
         var item = {
           idProductOrder: idProduct,
           nameProductOrder: nameProduct,
           imgProductOrder: imgProduct,
           amounts: currentAmount,
           prices: currentAmount * pricesProduct,
-          amountsProductAdded: amountsAdded
         };
         order.push(item);
         localStorage.setItem('orders', JSON.stringify(order));
@@ -184,7 +178,46 @@ window.addEventListener('DOMContentLoaded', function (e) {
   };
 
   btnCheckout.onclick = () => {
-    location.href = '/order/checkout';
+    var NameProducts = '';
+    document.querySelectorAll('.name-product-added').forEach((e, i) => {
+      NameProducts += `${e.textContent}&`;
+    });
+
+    var amountsProducts = '';
+    document.querySelectorAll('.edit').forEach((e, i) => {
+      amountsProducts += `${e.getAttribute('data-bs-whatever')}&`;
+    });
+
+    var pricesProducts = '';
+    document.querySelectorAll('.prices-product-add').forEach((e, i) => {
+      pricesProducts += `${
+        e.textContent.split(/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/)[1]
+      }&`;
+    });
+
+    var idProducts = '';
+    document.querySelectorAll('.remove').forEach((e, i) => {
+      idProducts += `${e.getAttribute('data-bs-whatever')}&`;
+    });
+
+    var totalPricesProduct = document
+      .querySelector('.total-prices')
+      .textContent.split(/[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/)[1];
+    amountsProductOrder.value = amountsProducts;
+    idProductOrder.value = idProducts;
+    nameProductOrder.value = NameProducts;
+    pricesProductOrder.value = pricesProducts;
+    totalPrices.value = totalPricesProduct;
+
+    if (
+      (amountsProductOrder.value &&
+        idProductOrder.value &&
+        nameProductOrder.value &&
+        pricesProductOrder.value &&
+        totalPrices.value) !== ''
+    ) {
+      formAddProduct.submit();
+    }
   };
 
   function updatePrices() {
@@ -234,22 +267,25 @@ window.addEventListener('DOMContentLoaded', function (e) {
       </div>`;
     });
     listProductAdded.innerHTML = listItemProductElement;
+    const btnEditOrder = document.querySelectorAll('.edit');
+    btnEditOrder.forEach((e, i) => {
+      e.setAttribute('data-bs-whatever', orders[i].amounts);
+    });
     updatePrices();
     removeOrder();
   }
 
-  function deleteOrder(idDelete){
+  function deleteOrder(idDelete) {
     showListOrder(order);
     const result = order.filter((e, i) => {
       return e.idProductOrder !== idDelete;
     });
     order = result;
     if (order.length !== 0) {
-      order[order.length - 1].amountsProductAdded -= 1;
       localStorage.setItem('orders', JSON.stringify(order));
       showListOrder(order);
-      amountsAdded = order[order.length - 1].amountsProductAdded;
-    }else{
+      amountsAdded = order.length;
+    } else {
       localStorage.setItem('orders', JSON.stringify(order));
       showListOrder(order);
       amountsAdded = 0;
@@ -257,6 +293,9 @@ window.addEventListener('DOMContentLoaded', function (e) {
     if (amountsAdded > 0) {
       amountsProductAdd.textContent = amountsAdded;
       customerCart.classList.add('active');
+    } else {
+      amountsProductAdd.textContent = '';
+      customerCart.classList.remove('active');
     }
   }
   var idDelete = '';
@@ -264,10 +303,10 @@ window.addEventListener('DOMContentLoaded', function (e) {
     const btnRemoveOrder = document.querySelectorAll('.remove');
     btnRemoveOrder.forEach((e, i) => {
       e.addEventListener('click', () => {
-       idDelete = e.getAttribute('data-bs-whatever');
-       deleteOrder(idDelete);
-     })
-    })
+        idDelete = e.getAttribute('data-bs-whatever');
+        deleteOrder(idDelete);
+      });
+    });
   }
   removeOrder();
 });

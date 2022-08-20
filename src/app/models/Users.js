@@ -23,6 +23,10 @@ const UserSchema = new Schema(
       required: true,
       maxLength: 255,
     },
+    isAdmin: {
+      type: Number,
+      default: 0,
+    },
   },
   {
     timestamps: true,
@@ -57,7 +61,10 @@ passport.use(
 );
 
 const isLoggedOut = function (req, res, next) {
-  if (!req.isAuthenticated()) return next();
+  if (!req.isAuthenticated()) {
+    return next();
+  }
+  console.log('Logged out');
   res.redirect('/');
 };
 
@@ -70,14 +77,12 @@ const userInfor = async function (req, res, next) {
         username: user.username,
         email: user.email,
         password: user.password,
+        isAdmin: user.isAdmin,
       };
-      console.log(res.locals.user);
     });
     return next();
-  } else {
-    console.log('please login');
-    res.redirect('/auth/login');
   }
+  res.redirect('/auth/login');
 };
 
 module.exports = {

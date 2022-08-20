@@ -17,7 +17,9 @@ app.engine(
   '.hbs',
   engine({
     extname: '.hbs',
-    helpers: {},
+    helpers: {
+      sum: (a, b) => a + b
+    },
   })
 );
 app.set('view engine', '.hbs');
@@ -29,7 +31,6 @@ app.use(
     resave: true,
     saveUninitialized: true,
     secret: 'somesecret',
-    cookie: { maxAge: 6000000, secure: true, sameSite: 'none' },
   })
 );
 

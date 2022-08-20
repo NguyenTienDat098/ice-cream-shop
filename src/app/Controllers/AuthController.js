@@ -5,6 +5,7 @@ const { Users } = require('../models/Users');
 const { inforUser } = require('../models/Users');
 const Flavors = require('../models/Flavors');
 const Orders = require('../models/Order');
+const Bill = require('../models/Bill');
 
 class AuthController {
   /**
@@ -64,12 +65,9 @@ class AuthController {
             const newCustomerOrder = new Orders({
               idCustomer: UserID,
             });
-            newCustomerOrder
-              .save()
-              .then(() => {
-                res.redirect('/auth/login');
-              })
-              .catch(next);
+            newCustomerOrder.save().then((customerOrder) => {
+              res.redirect('/auth/login');
+            });
           })
           .catch(next);
       });
@@ -126,6 +124,10 @@ class AuthController {
       console.log('LOGGED OUT !!!');
       res.redirect('/');
     });
+  }
+
+  getlogout(req, res) {
+    res.send('');
   }
 }
 module.exports = new AuthController();
