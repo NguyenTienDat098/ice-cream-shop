@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
+const url = 'mongodb + srv://NguyenTienDat098:hetmatkhauroi2442004@cluster0.tiqp7q4.mongodb.net/?retryWrites=true&w=majority'
 async function connect() {
   try {
-    await mongoose.connect('mongodb://0.0.0.0:27017/my_ice_cream_database', {
+    await mongoose.connect(url, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
