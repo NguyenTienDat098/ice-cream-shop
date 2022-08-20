@@ -272,8 +272,8 @@ class SiteController {
       .then((bill) => {
         res.render('../../resources/views/order/editCustomerOrder', {
           title: 'Edit - Customer - Order',
-          bill: mongooseToObject(bill)
-        })
+          bill: mongooseToObject(bill),
+        });
       })
       .catch(next);
   }
@@ -281,12 +281,13 @@ class SiteController {
   HandleEditCustomerOrder(req, res, next) {
     Bill.findOne({ code: req.body.code })
       .then((bill) => {
-        bill.updateOne({
-          processDelivery: req.body.processDelivery
-        })
+        bill
+          .updateOne({
+            processDelivery: req.body.processDelivery,
+          })
           .then((bill) => {
             res.redirect('/customer-orders');
-          })
+          });
       })
       .catch(next);
   }

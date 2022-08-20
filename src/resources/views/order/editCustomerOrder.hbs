@@ -1,8 +1,25 @@
-<form class="edit-customer-order vh-100 p-3" action="/customer-orders/{{bill.code}}/edit" method="POST">
-    <label for="exampleDataList" class="form-label">Code Order</label>
-    <input class="form-control mb-4" name="code" placeholder="Type to edit..." value="{{bill.code}}">
-    <label for="exampleDataList" class="form-label">Process</label>
-    <input class="form-control mb-4" name="processDelivery" placeholder="Type to edit..."
-        value="{{bill.processDelivery}}" type="number">
-    <button class="btn-edit-customer-order btn btn-primary" type="submit">Save</button>
+<form
+  class='edit-customer-order vh-100 p-3'
+  action='/customer-orders/{{bill.code}}/edit'
+  method='POST'
+>
+  <label for='exampleDataList' class='form-label'>Code Order</label>
+  <input
+    class='form-control mb-4'
+    name='code'
+    placeholder='Type to edit...'
+    value='{{bill.code}}'
+  />
+  <label for='exampleDataList' class='form-label'>Process</label>
+  <input
+    class='form-control mb-4'
+    name='processDelivery'
+    placeholder='Type to edit...'
+    value='{{bill.processDelivery}}'
+    type='number'
+  />
+  <button
+    class='btn-edit-customer-order btn btn-primary'
+    type='submit'
+  >Save</button>
 </form>
