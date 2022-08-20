@@ -108,6 +108,10 @@
     .process {
         width: 80% !important;
     }
+
+    .img-item {
+        width: 50%;
+    }
 }
 
 @media only screen and (max-width: 390px) {
@@ -183,7 +187,7 @@
     }
 
     .child-list {
-        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     }
 
     .view-cart {
@@ -219,5 +223,9 @@
 
     .process {
         width: 80% !important;
+    }
+
+    .img-item {
+        width: 50%;
     }
 }
