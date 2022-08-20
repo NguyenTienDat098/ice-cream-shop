@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "type": "commonjs",
   "scripts": {
+    "start": "node src/index.js",
     "dev": "nodemon --ext *",
     "server": "nodemon --inspect src/index.js",
     "format": "prettier-eslint --tab-width  --single-quote  --write \"src/**/*.{js,json,hbs}\"",
