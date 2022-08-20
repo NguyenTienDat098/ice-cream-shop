@@ -6,26 +6,12 @@ const Orders = require('../models/Order');
 const Bill = require('../models/Bill');
 
 class SiteController {
-  /**
-   * [get home page]
-   * @param  {[type]}   req  [localhost:3000/]
-   * @param  {[type]}   res  [return home.hbs file]
-   * @param  {Function} next [description]
-   * @return {[type]}        [description]
-   */
   home(req, res, next) {
     res.render('home', {
       title: 'Ice - Cream - Shop',
     });
   }
 
-  /**
-   * [get flavors page]
-   * @param  {[type]}   req  [localhost:3000/flavors]
-   * @param  {[type]}   res  [return flavors.hbs file]
-   * @param  {Function} next [description]
-   * @return {[type]}        [description]
-   */
   flavors(req, res, next) {
     var flavorsIceCream = [];
     var flavorsIceDaily = [];
@@ -48,13 +34,6 @@ class SiteController {
       .catch(next);
   }
 
-  /**
-   * [get orders online page]
-   * @param  {[type]}   req  [localhost:3000/order]
-   * @param  {[type]}   res  [return order.hbs file]
-   * @param  {Function} next [description]
-   * @return {[type]}        [description]
-   */
   orderProduct(req, res, next) {
     var flavorsIceCream = [];
     var flavorsIceDaily = [];
@@ -88,13 +67,6 @@ class SiteController {
       .catch(next);
   }
 
-  /**
-   * [Save the product when the customer places an order in the customer's cart]
-   * @param  {[type]}   req  [POST localhost:3000/order]
-   * @param  {[type]}   res  [description]
-   * @param  {Function} next [description]
-   * @return {[type]}        [description]
-   */
   saveProductOrder(req, res, next) {
     const userInfor = res.locals.user;
     Orders.findOne({ idCustomer: userInfor.userid })
@@ -272,8 +244,8 @@ class SiteController {
       .then((bill) => {
         res.render('../../resources/views/order/editCustomerOrder', {
           title: 'Edit - Customer - Order',
-          bill: mongooseToObject(bill)
-        })
+          bill: mongooseToObject(bill),
+        });
       })
       .catch(next);
   }
@@ -281,12 +253,13 @@ class SiteController {
   HandleEditCustomerOrder(req, res, next) {
     Bill.findOne({ code: req.body.code })
       .then((bill) => {
-        bill.updateOne({
-          processDelivery: req.body.processDelivery
-        })
+        bill
+          .updateOne({
+            processDelivery: req.body.processDelivery,
+          })
           .then((bill) => {
             res.redirect('/customer-orders');
-          })
+          });
       })
       .catch(next);
   }

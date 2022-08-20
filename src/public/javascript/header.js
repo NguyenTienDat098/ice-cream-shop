@@ -6,10 +6,10 @@ window.addEventListener('DOMContentLoaded', function (e) {
   const btnCloseMenuMobile = document.querySelector('.close-menu-mobile');
   const userItem = document.querySelector('.dropdown');
 
-  if (window.location.href.indexOf("home") > -1) {
+  if (window.location.href.indexOf('home') > -1) {
     console.log(true);
     userItem.style.display = 'none';
-  } else if (window.location.href.indexOf("flavors") > -1) {
+  } else if (window.location.href.indexOf('flavors') > -1) {
     console.log(true);
     userItem.style.display = 'none';
   } else {
@@ -17,14 +17,13 @@ window.addEventListener('DOMContentLoaded', function (e) {
     userItem.style.display = 'flex';
   }
 
-
   if (btnLogout) {
     btnLogout.forEach((e, i) => {
       e.onclick = (evt) => {
         evt.preventDefault();
         formLogout.submit();
       };
-    })
+    });
   }
 
   const logo = document.querySelector('.logo');
@@ -39,6 +38,4 @@ window.addEventListener('DOMContentLoaded', function (e) {
   btnShowMenuMobile.onclick = () => {
     menuMobile.classList.add('tranform-menu-mobile');
   };
-
-
 });

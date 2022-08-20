@@ -74,31 +74,31 @@ window.addEventListener('DOMContentLoaded', function (e) {
     }
   });
 
-  // insert link for buton 
+  // insert link for buton
   const btn = document.querySelectorAll('.btn-menu');
   btn.forEach((e, i) => {
     e.onclick = () => {
       switch (i) {
         case 0: {
-          location.href = '/flavors'
+          location.href = '/flavors';
           break;
         }
         case 1: {
-          location.href = '/flavors'
+          location.href = '/flavors';
           break;
         }
         case 2: {
-          location.href = '/flavors'
+          location.href = '/flavors';
           break;
         }
         case 4: {
-          location.href = '/order'
+          location.href = '/order';
           break;
         }
         default: {
           break;
         }
       }
-    }
-  })
+    };
+  });
 });

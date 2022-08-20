@@ -1,6 +1,8 @@
-<div class="menu-mobile position-fixed w-100">
-  <ion-icon name="close-outline" class="close-menu-mobile"></ion-icon>
-  <ul class='menu-items-mobile d-flex flex-column align-items-center justify-content-center h-100 w-100'>
+<div class='menu-mobile position-fixed w-100'>
+  <ion-icon name='close-outline' class='close-menu-mobile'></ion-icon>
+  <ul
+    class='menu-items-mobile d-flex flex-column align-items-center justify-content-center h-100 w-100'
+  >
     <a href='/flavors'>
       <li class='item-mobile'>flavors</li>
     </a>
@@ -14,38 +16,42 @@
       <li class='item-mobile'>about</li>
     </a>
     {{#if orderInfor}}
-    {{#each orderInfor}}
-    <a href='/order-information/{{this.code}}'>
-      <li class='item-mobile'>my order {{this.code}}</li>
-    </a>
-    {{/each}}
+      {{#each orderInfor}}
+        <a href='/order-information/{{this.code}}'>
+          <li class='item-mobile'>my order {{this.code}}</li>
+        </a>
+      {{/each}}
     {{else}}
-    <a href='/order'>
-      <li class='item-mobile'>my order</li>
-    </a>
+      <a href='/order'>
+        <li class='item-mobile'>my order</li>
+      </a>
     {{/if}}
     {{#if userInfor.isAdmin}}
-    <a href='/auth/add-product' class="btn-add-product">
-      <li class='item-mobile'>add new product</li>
-    </a>
-    <a href='/customer-orders' class="btn-customer-order">
-      <li class='item-mobile'>customer orders</li>
-    </a>
+      <a href='/auth/add-product' class='btn-add-product'>
+        <li class='item-mobile'>add new product</li>
+      </a>
+      <a href='/customer-orders' class='btn-customer-order'>
+        <li class='item-mobile'>customer orders</li>
+      </a>
     {{/if}}
     {{#if userInfor}}
-    <a href='/auth/logout' class="btn-logout">
-      <li class='item-mobile'>logout</li>
-    </a>
+      <a href='/auth/logout' class='btn-logout'>
+        <li class='item-mobile'>logout</li>
+      </a>
     {{/if}}
   </ul>
 </div>
-<header class="position-relative">
-  {{!-- button show menu in mobile ui --}}
-  <ion-icon name="menu-outline" class="show-menu-mobile"></ion-icon>
-  {{!-- button show menu in mobile ui --}}
-  <div class='container-header d-flex flex-row align-items-center justify-content-between'>
+<header class='position-relative'>
+  {{! button show menu in mobile ui }}
+  <ion-icon name='menu-outline' class='show-menu-mobile'></ion-icon>
+  {{! button show menu in mobile ui }}
+  <div
+    class='container-header d-flex flex-row align-items-center justify-content-between'
+  >
     <div class='menu h-100'>
-      <ul class='menu-items d-flex flex-row align-items-center justify-content-center h-100'>
+      <ul
+        class='menu-items d-flex flex-row align-items-center justify-content-center h-100'
+      >
         <a href='/flavors'>
           <li class='item'>flavors</li>
         </a>
@@ -61,26 +67,39 @@
       </ul>
     </div>
     <span class='logo' style='cursor: pointer;'>Gelata</span>
-    <div class='account-users d-flex flex-row align-items-center justify-content-center h-100'>
-      <div class='users-login d-flex flex-row align-items-center justify-content-center h-100 me-5'>
-        <div class="dropdown">
-          <button class="btn dropdown-toggle d-flex align-item-center justify-centent-center" type="button"
-            data-toggle="dropdown" aria-expanded="true">
-            <ion-icon name="person-circle-outline" style="font-size: 30px">
+    <div
+      class='account-users d-flex flex-row align-items-center justify-content-center h-100'
+    >
+      <div
+        class='users-login d-flex flex-row align-items-center justify-content-center h-100 me-5'
+      >
+        <div class='dropdown'>
+          <button
+            class='btn dropdown-toggle d-flex align-item-center justify-centent-center'
+            type='button'
+            data-toggle='dropdown'
+            aria-expanded='true'
+          >
+            <ion-icon name='person-circle-outline' style='font-size: 30px'>
             </ion-icon>
           </button>
-          <div class="dropdown-menu">
+          <div class='dropdown-menu'>
             {{#if userInfor}}
-            {{#each orderInfor}}
-            <a class="dropdown-item" href="/order-information/{{this.code}}">My Order ({{this.code}})</a>
-            {{/each}}
-            <a class="dropdown-item btn-logout" href="/auth/logout">Logout</a>
+              {{#each orderInfor}}
+                <a
+                  class='dropdown-item'
+                  href='/order-information/{{this.code}}'
+                >My Order ({{this.code}})</a>
+              {{/each}}
+              <a class='dropdown-item btn-logout' href='/auth/logout'>Logout</a>
             {{else}}
-            <a class="dropdown-item" href="/auth/login">Login</a>
+              <a class='dropdown-item' href='/auth/login'>Login</a>
             {{/if}}
           </div>
         </div>
-        <div class='social-page d-flex flex-row align-items-center justify-content-center'>
+        <div
+          class='social-page d-flex flex-row align-items-center justify-content-center'
+        >
           <ion-icon name='logo-facebook'></ion-icon>
           <ion-icon name='logo-twitter'></ion-icon>
           <ion-icon name='logo-instagram'></ion-icon>

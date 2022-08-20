@@ -4,7 +4,10 @@ const router = express.Router();
 const { userInfor } = require('../app/models/Users');
 
 router.get('/flavors', siteController.flavors);
-router.post('/customer-orders/:code/edit', siteController.HandleEditCustomerOrder);
+router.post(
+  '/customer-orders/:code/edit',
+  siteController.HandleEditCustomerOrder
+);
 router.get('/customer-orders/:code/edit', siteController.editCustomerOrder);
 router.get('/customer-orders', userInfor, siteController.customerOrder);
 router.get('/order-information/:code', userInfor, siteController.getInforOrder);
