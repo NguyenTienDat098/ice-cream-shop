@@ -11,8 +11,8 @@
           alt='Sample image'
         />
       </div>
-      <div class='col-md-8 col-lg-6 col-xl-4 offset-xl-1'>
-        <form method='POST' action='/auth/login'>
+      <div class='col-md-8 col-lg-6 col-xl-4 offset-xl-1 bg-white'>
+        <form method='POST' action='/auth/login' class='form-login'>
           <div class='divider d-flex align-items-center my-4'>
             {{#if error}}
               <p
@@ -33,7 +33,7 @@
               type='text'
               id='form3Example3'
               name='username'
-              class='form-control form-control-lg'
+              class='form-control form-control-lg input-lg'
               placeholder='Enter a valid Username'
             />
             <label class='form-label' for='form3Example3'>
@@ -45,7 +45,7 @@
               type='password'
               id='form3Example4'
               name='password'
-              class='form-control form-control-lg'
+              class='form-control form-control-lg input-lg'
               placeholder='Enter password'
             />
             <label class='form-label' for='form3Example4'>
@@ -72,7 +72,7 @@
           <div class='text-center text-lg-start mt-4 pt-2'>
             <button
               type='submit'
-              class='btn btn-primary btn-lg'
+              class='btn btn-primary btn-lg btn-login'
               style='padding-left: 2.5rem; padding-right: 2.5rem;'
             >Login
             </button>
@@ -87,3 +87,7 @@
     </div>
   </div>
 </section>
+<script
+  type='text/javascript'
+  src='/public/javascript/checkValueForm.js'
+></script>

@@ -1,9 +1,11 @@
 <div
-  class='card-body position-absolute bg-white'
-  style='z-index: 5; top: 0;  bottom: 0; left: 0; right :0'
+  class='card-body position-absolute bg-white w-100'
+  style='overflow-x: hidden; z-index: 5; top: 0;  bottom: 0; left: 0; right :0'
 >
   <div class='row justify-content-center'>
-    <div class='col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1'>
+    <div
+      class='col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 d-flex align-items-center justify-content-center flex-column'
+    >
       {{#if error}}
         <p
           class='text-center h3 fw-bold mb-5 mx-1 mx-md-4 mt-4 text-danger'
@@ -19,16 +21,21 @@
           Sign Up
         </p>
       {{/if}}
-      <form class='mx-1 mx-md-4' method='POST' action='/auth/signup'>
+      <form
+        class='mx-1 mx-md-4 bg-white form-register'
+        method='POST'
+        action='/auth/signup'
+      >
         <div class='d-flex flex-row align-items-center mb-4'>
           <div class='form-outline flex-fill mb-0'>
             <input
               type='text'
               id='form3Example1c'
               name='username'
-              class='form-control'
+              class='form-control input-rg'
+              placeholder='Please enter your username'
             />
-            <label class='form-label' for='form3Example1c'>Your Name</label>
+            <label class='form-label' for='form3Example1c'>Username</label>
           </div>
         </div>
         <div class='d-flex flex-row align-items-center mb-4'>
@@ -37,7 +44,8 @@
               type='email'
               id='form3Example3c'
               name='email'
-              class='form-control'
+              class='form-control input-rg'
+              placeholder='Please enter your email'
             />
             <label class='form-label' for='form3Example3c'>Your Email</label>
           </div>
@@ -48,31 +56,28 @@
               type='password'
               id='form3Example4c'
               name='password'
-              class='form-control'
+              class='form-control input-rg'
+              placeholder='Please enter your password'
             />
             <label class='form-label' for='form3Example4c'>Password</label>
           </div>
         </div>
         <div class='d-flex flex-row align-items-center mb-4'>
           <div class='form-outline flex-fill mb-0'>
-            <input type='password' id='form3Example4cd' class='form-control' />
+            <input
+              type='password'
+              id='form3Example4cd'
+              class='form-control input-rg'
+              placeholder='Please repeat your password'
+            />
             <label class='form-label' for='form3Example4cd'>Repeat your password</label>
           </div>
         </div>
-        <div class='form-check d-flex justify-content-center mb-5'>
-          <input
-            class='form-check-input me-2'
-            type='checkbox'
-            value=''
-            id='form2Example3c'
-          />
-          <label class='form-check-label' for='form2Example3'>
-            I agree all statements in
-            <a href='#!'>Terms of service</a>
-          </label>
-        </div>
         <div class='d-flex justify-content-center mx-4 mb-3 mb-lg-4'>
-          <button type='submit' class='btn btn-primary btn-lg'>Register</button>
+          <button
+            type='submit'
+            class='btn btn-primary btn-lg btn-register'
+          >Register</button>
         </div>
       </form>
     </div>
@@ -87,3 +92,7 @@
     </div>
   </div>
 </div>
+<script
+  type='text/javascript'
+  src='/public/javascript/checkValueForm.js'
+></script>

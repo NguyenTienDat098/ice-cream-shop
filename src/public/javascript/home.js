@@ -3,20 +3,17 @@ window.addEventListener('DOMContentLoaded', function (e) {
   const backGroundUnder = document.querySelector('.bg');
   window.addEventListener('scroll', function (e) {
     var scroll = window.scrollY;
-    if (scroll >= 2000) {
+    if (scroll >= 2253) {
       backGroundUnder.style.backgroundColor = '#ff7979';
       backGroundUnder.style.backgroundImage = `url('/public/imgs/baac51_809fe275413a451fbe5e2904700e26ea.png')`;
       backGroundUnder.style.backgroundRepeat = 'no-repeat';
       backGroundUnder.style.backgroundPosition = 'center';
     }
-    if (scroll < 2000) {
+    if (scroll < 2253) {
       backGroundUnder.style.backgroundColor = '#badc58';
       backGroundUnder.style.backgroundImage = `url('/public/imgs/baac51_6728e43c48674e7d90ac20825b605525.png')`;
       backGroundUnder.style.backgroundRepeat = 'no-repeat';
       backGroundUnder.style.backgroundPosition = 'center';
-    }
-    if (scroll >= 3300 && scroll <= 5000) {
-      backGroundUnder.style.background = '#7ed6df';
     }
   });
   // chage slide image
