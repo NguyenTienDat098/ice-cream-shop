@@ -119,7 +119,17 @@
     .info {
         padding-right: 0 !important;
     }
+
+    .title-2 {
+        margin-bottom: 20px !important;
+    }
+
+    .des p {
+        margin-bottom: 20px !important;
+    }
 }
+
+
 
 @media only screen and (max-width: 390px) {
     .introduce-1 .title-big {
@@ -241,5 +251,13 @@
 
     .info {
         padding-right: 0 !important;
+    }
+
+    .title-2 {
+        margin-bottom: 20px !important;
+    }
+
+    .des p {
+        margin-bottom: 20px !important;
     }
 }
