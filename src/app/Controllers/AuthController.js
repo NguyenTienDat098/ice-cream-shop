@@ -65,8 +65,13 @@ class AuthController {
             const newCustomerOrder = new Orders({
               idCustomer: UserID,
             });
+            const newBill = new Bill({
+              idCustomer: UserID,
+            })
             newCustomerOrder.save().then((customerOrder) => {
-              res.redirect('/auth/login');
+              newBill.save((bill) => {
+                res.redirect('/auth/login');
+              })
             });
           })
           .catch(next);

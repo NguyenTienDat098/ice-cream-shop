@@ -28,7 +28,7 @@ class SiteController {
         res.render('../../resources/views/flavors/flavors', {
           title: 'ICE - CREAM - FLAVORS',
           flavorsIceCream: mutipleMongooseToObject(flavorsIceCream),
-          flavorsIceDaily: mutipleMongooseToObject(flavorsIceDaily),
+          flavorsIceDaily: mutipleMongooseToObject(flavorsIceDaily)
         });
       })
       .catch(next);
@@ -60,7 +60,7 @@ class SiteController {
             flavorsIceCream: mutipleMongooseToObject(flavorsIceCream),
             flavorsIceDaily: mutipleMongooseToObject(flavorsIceDaily),
             orderInfor: mutipleMongooseToObject(orderInfor),
-            userInfor,
+            userInfor
           });
         });
       })
@@ -80,7 +80,7 @@ class SiteController {
             idProductOrder: `${req.body.idProductOrder}`,
             amountsProductOrder: `${req.body.amountsProductOrder}`,
             totalPrices: `${req.body.pricesProductOrder}`,
-            nameProductOrder: `${req.body.nameProductOrder}`,
+            nameProductOrder: `${req.body.nameProductOrder}`
           })
           .then((order) => {
             res.redirect('/order/checkout');
@@ -99,6 +99,20 @@ class SiteController {
         const listIdProductOrder = order.idProductOrder.split(
           /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
         );
+        for (let i = 0; i < listIdProductOrder.length - 1; i++) {
+          Flavors.findById(listIdProductOrder[i]).then((flavors) => {
+            var product = {
+              name: flavors.name,
+              amounts: order.amountsProductOrder.split(
+                /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
+              )[i],
+              prices: order.totalPrices.split(
+                /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
+              )[i],
+            };
+            productsOrder.push(product);
+          });
+        }
         Bill.find({ idCustomer: userInfor.userid }).then((bill) => {
           bill.forEach((e, i) => {
             if (i === bill.length - 1) {
@@ -106,34 +120,19 @@ class SiteController {
                 firstName: e.firstName,
                 lastName: e.lastName,
                 address: e.address,
-                phoneNumber: e.phoneNumber,
+                phoneNumber: e.phoneNumber
               };
             }
             if (e.code !== 0) {
               orderInfor.push(e);
             }
           });
-          for (let i = 0; i < listIdProductOrder.length - 1; i++) {
-            Flavors.findById(listIdProductOrder[i]).then((flavors) => {
-              var product = {
-                name: flavors.name,
-                amounts: order.amountsProductOrder.split(
-                  /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
-                )[i],
-                prices: order.totalPrices.split(
-                  /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
-                )[i],
-                img: flavors.img,
-              };
-              productsOrder.push(product);
-            });
-          }
           res.render('../../resources/views/order/checkout', {
             title: 'Check - Out',
             productsOrder,
             currentInforCustomer,
             orderInfor: mutipleMongooseToObject(orderInfor),
-            userInfor,
+            userInfor
           });
         });
       })
@@ -157,7 +156,7 @@ class SiteController {
         phoneNumber: req.body.phonenumber,
         deliveryMethod: req.body.deliveryMethod,
         paymentMethod: req.body.paymentMethod,
-        code: codeOrder,
+        code: codeOrder
       });
       bill
         .save()
@@ -169,8 +168,9 @@ class SiteController {
   }
 
   getInforOrder(req, res, next) {
-    var productsOrder = [];
     var bills = [];
+    var orderInfor = [];
+    var productsOrder = [];
     var paymentMethod = false; // true is pay when receive '2',  false is pay now '1'
     var deliveryMethod = false; // true is home delivery '2',  false is pick up form store '1'
     const userInfor = res.locals.user;
@@ -180,53 +180,64 @@ class SiteController {
         const listIdProductOrder = order.idProductOrder.split(
           /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
         );
-        Bill.findOne({ code: req.params.code }).then((bill) => {
-          bills.push(bill);
-          switch (bills[0].paymentMethod) {
-            case '1':
-              paymentMethod = false;
-              break;
-            case '2':
-              paymentMethod = true;
-              break;
-            default:
-              break;
-          }
-
-          switch (bills[0].deliveryMethod) {
-            case '1':
-              deliveryMethod = false;
-              break;
-            case '2':
-              deliveryMethod = true;
-              break;
-            default:
-              break;
-          }
-          for (let i = 0; i < listIdProductOrder.length - 1; i++) {
-            Flavors.findById(listIdProductOrder[i]).then((flavors) => {
-              var product = {
-                name: flavors.name,
-                amounts: order.amountsProductOrder.split(
-                  /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
-                )[i],
-                prices: order.totalPrices.split(
-                  /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
-                )[i],
-                img: flavors.img,
-              };
-              productsOrder.push(product);
-            });
-          }
-          res.render('../../resources/views/order/inforOrder', {
-            title: 'Order - Information',
-            productsOrder,
-            bills: mongooseToObject(bills[0]),
-            paymentMethod,
-            deliveryMethod,
-            userInfor,
+        for (let i = 0; i < listIdProductOrder.length - 1; i++) {
+          Flavors.findById(listIdProductOrder[i]).then((flavors) => {
+            var product = {
+              name: flavors.name,
+              amounts: order.amountsProductOrder.split(
+                /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
+              )[i],
+              prices: order.totalPrices.split(
+                /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
+              )[i],
+              img: flavors.img,
+            };
+            productsOrder.push(product);
           });
-        });
+        }
+        Bill.find({ idCustomer: userInfor.userid })
+          .then((bill) => {
+            bill.forEach((e, i) => {
+              if (e.code !== 0) {
+                orderInfor.push(e);
+                if (e.code.toString() === req.params.code) {
+                  bills.push(e);
+                  switch (bills[0].paymentMethod) {
+                    case '1':
+                      paymentMethod = false;
+                      break;
+                    case '2':
+                      paymentMethod = true;
+                      break;
+                    default:
+                      break;
+                  }
+
+                  switch (bills[0].deliveryMethod) {
+                    case '1':
+                      deliveryMethod = false;
+                      break;
+                    case '2':
+                      deliveryMethod = true;
+                      break;
+                    default:
+                      break;
+                  }
+
+                  res.render('../../resources/views/order/inforOrder', {
+                    title: 'Order - Information',
+                    productsOrder,
+                    bills: mongooseToObject(bills[0]),
+                    paymentMethod,
+                    deliveryMethod,
+                    userInfor,
+                    orderInfor: mutipleMongooseToObject(orderInfor)
+                  });
+                }
+              }
+            })
+          })
+          .catch(next);
       })
       .catch(next);
   }
@@ -234,7 +245,7 @@ class SiteController {
     Bill.find().then((bills) => {
       res.render('../../resources/views/order/customerOrder', {
         title: 'View - Customer - Orders',
-        bills: mutipleMongooseToObject(bills),
+        bills: mutipleMongooseToObject(bills)
       });
     });
   }
@@ -244,7 +255,7 @@ class SiteController {
       .then((bill) => {
         res.render('../../resources/views/order/editCustomerOrder', {
           title: 'Edit - Customer - Order',
-          bill: mongooseToObject(bill),
+          bill: mongooseToObject(bill)
         });
       })
       .catch(next);
