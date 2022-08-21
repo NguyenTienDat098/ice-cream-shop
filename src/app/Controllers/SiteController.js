@@ -266,6 +266,7 @@ class SiteController {
       .then((bill) => {
         bill
           .updateOne({
+            code: req.body.code,
             processDelivery: req.body.processDelivery,
           })
           .then((bill) => {
