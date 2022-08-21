@@ -1,35 +1,22 @@
 {{! customer cart start}}
-<div
-  class='customer-cart-view position-fixed w-100 top-0 bottom-0 end-0'
-  style='background: rgba(0,0,0,0.3); z-index: 4; user-select: none'
->
-  <div
-    class='view-cart position-absolute top-0 bottom-0 end-0 bg-white d-flex align-items-center flex-column pt-3 pb-3'
-    style='width: 400px'
-  >
-    <ion-icon
-      name='close-outline'
-      class='position-absolute rounded bg-dark text-light close-view-cart'
-      style='top: 20px; right: 20px; width: 25px; height: 25px; cursor: pointer'
-    ></ion-icon>
+<div class='customer-cart-view position-fixed w-100 top-0 bottom-0 end-0'
+  style='background: rgba(0,0,0,0.3); z-index: 4; user-select: none'>
+  <div class='view-cart position-absolute top-0 bottom-0 end-0 bg-white d-flex align-items-center flex-column pt-3 pb-3'
+    style='width: 400px'>
+    <ion-icon name='close-outline' class='position-absolute rounded bg-dark text-light close-view-cart'
+      style='top: 20px; right: 20px; width: 25px; height: 25px; cursor: pointer'></ion-icon>
     <h3>My Order</h3>
-    <div
-      class='list-product-added w-100'
-      style='overflow-y: scroll; max-height: 400px;'
-    >
+    <div class='list-product-added w-100' style='overflow-y: scroll; max-height: 400px;'>
 
     </div>
     <div
       class='total w-100 bg-white d-flex align-items-center justify-content-between p-2 border-top border-1 border-dark mt-3'
-      style=''
-    >
+      style=''>
       <p class='fs-5'>Total</p>
       <p class='total-prices fs-5'>$0</p>
     </div>
-    <button
-      class='btn-checkout position-absolute'
-      style='height: 45px; outline: none; border: none; bottom: 20px; width: 80%; background: #feca57;'
-    >
+    <button class='btn-checkout position-absolute'
+      style='height: 45px; outline: none; border: none; bottom: 20px; width: 80%; background: #feca57;'>
       Continute to checkout
     </button>
   </div>
@@ -38,46 +25,31 @@
 {{! add to view cart start }}
 <div
   class='position-fixed align-items-center justify-content-center bg-white flex-column rounded overflow-hidden ps-3 pe-3 view-select-product'
-  style='user-select: none'
->
-  <ion-icon
-    name='close'
-    class='position-absolute rounded bg-dark text-light close-select-view'
-    style='top: 20px; right: 20px; width: 25px; height: 25px; cursor: pointer'
-  ></ion-icon>
+  style='user-select: none'>
+  <ion-icon name='close' class='position-absolute rounded bg-dark text-light close-select-view'
+    style='top: 20px; right: 20px; width: 25px; height: 25px; cursor: pointer'></ion-icon>
   <img src='' alt='' class='img-product-select' style='height: 35%' />
   <div class='w-100 text-center'>
-    <h3
-      class='name-product-select'
-      style="font-family: 'Mochiy Pop One', sans-serif;"
-    ></h3>
+    <h3 class='name-product-select' style="font-family: 'Mochiy Pop One', sans-serif;"></h3>
     <p class='des-product-select'></p>
     <span class='' style="font-family: 'Mochiy Pop One', sans-serif;">
       Special Requests
     </span>
-    <textarea
-      class='p-2 w-100 customer-requests'
-      style='outline: none; max-height: 150px'
-      placeholder="Add them here, We'll do our best to make it happen."
-    ></textarea>
+    <textarea class='p-2 w-100 customer-requests' style='outline: none; max-height: 150px'
+      placeholder="Add them here, We'll do our best to make it happen."></textarea>
   </div>
   <div
     class='d-flex align-items-center justify-content-between position-absolute bottom-0 start-0 end-0 w-100 bg-dark ps-3 pe-3'
-    style='height: 60px; user-select: none'
-  >
+    style='height: 60px; user-select: none'>
     <div
       class='calc-amount d-flex align-items-center justify-content-between ps-2 pe-2 border border-dark bg-white border-2 text-dark rounded'
-      style='width: 25%; height: 45px'
-    >
+      style='width: 25%; height: 45px'>
       <p class='m-0 fs-5 decrease-number' style='cursor: pointer'>-</p>
       <p class='m-0 fs-5 amounts-product'>0</p>
       <p class='m-0 fs-5 increase-number' style='cursor: pointer'>+</p>
     </div>
-    <button
-      style="width: 70%; height: 45px; outline: none; border: none; background: #fdcb6e; 
-      font-family: 'Poppins', sans-serif;"
-      class='border border-dark border-2 rounded btn-add-product-select'
-    >
+    <button style="width: 70%; height: 45px; outline: none; border: none; background: #fdcb6e; 
+      font-family: 'Poppins', sans-serif;" class='border border-dark border-2 rounded btn-add-product-select'>
       Add to my order
     </button>
   </div>
@@ -87,28 +59,16 @@
   <div class='order-header d-flex align-items-center justify-content-between'>
     <ul class='items d-flex align-items-center justify-content-left'>
       <li class='item d-flex align-items-center justify-content-center'>
-        <a
-          href='#ice-cream-flavours'
-          style="font-family: 'Edu VIC WA NT Beginner', cursive;"
-        >
+        <a href='#ice-cream-flavours' style="font-family: 'Edu VIC WA NT Beginner', cursive;">
           ICE CREAM FLAVORS
         </a>
-        <p
-          class='border-bt position-absolute'
-          style='width: 100%; height: 0px; background: #2d3436; bottom: 0'
-        ></p>
+        <p class='border-bt position-absolute' style='width: 100%; height: 0px; background: #2d3436; bottom: 0'></p>
       </li>
       <li class='item d-flex align-items-center justify-content-center'>
-        <a
-          href='#dairy-free-flavors'
-          style="font-family: 'Edu VIC WA NT Beginner', cursive;"
-        >
+        <a href='#dairy-free-flavors' style="font-family: 'Edu VIC WA NT Beginner', cursive;">
           DAIRY FREE FLAVORS
         </a>
-        <p
-          class='border-bt position-absolute'
-          style='width: 100%; height: 0px; background: #2d3436; bottom: 0'
-        ></p>
+        <p class='border-bt position-absolute' style='width: 100%; height: 0px; background: #2d3436; bottom: 0'></p>
       </li>
     </ul>
     <div class='customer-cart d-flex align-items-center justify-content-center'>
@@ -128,22 +88,16 @@
           </h3>
           <div class='child-list'>
             {{#each flavorsIceCream}}
-              <div
-                class='d-flex align-items-center justify-content-between border-light border-2 border this-border-color child-item'
-                data-bs-whatever='{{this._id}}'
-              >
-                <div class='info px-4'>
-                  <p class='name-child-item text-uppercase'>{{this.name}}</p>
-                  <p class='des'>{{this.description}}</p>
-                  <p class='prices'>${{this.prices}}</p>
-                </div>
-                <img
-                  src='{{this.img}}'
-                  alt=''
-                  style='width: 70%;'
-                  class='img-item'
-                />
+            <div
+              class='d-flex align-items-center justify-content-between border-light border-2 border this-border-color child-item'
+              data-bs-whatever='{{this._id}}'>
+              <div class='info px-4'>
+                <p class='name-child-item text-uppercase'>{{this.name}}</p>
+                <p class='des'>{{this.description}}</p>
+                <p class='prices'>${{this.prices}}</p>
               </div>
+              <img src='{{this.img}}' alt='' style='width: 70%;' class='img-item' />
+            </div>
             {{/each}}
           </div>
         </div>
@@ -155,22 +109,16 @@
           </h3>
           <div class='child-list'>
             {{#each flavorsIceDaily}}
-              <div
-                class='d-flex align-items-center justify-content-between border-light border-2 border this-border-color child-item'
-                data-bs-whatever='{{this._id}}'
-              >
-                <div class='info px-4'>
-                  <p class='name-child-item text-uppercase'>{{this.name}}</p>
-                  <p class='des'>{{this.description}}</p>
-                  <p class='prices'>${{this.prices}}</p>
-                </div>
-                <img
-                  src='{{this.img}}'
-                  alt=''
-                  style='width: 70%;'
-                  class='img-item'
-                />
+            <div
+              class='d-flex align-items-center justify-content-between border-light border-2 border this-border-color child-item'
+              data-bs-whatever='{{this._id}}' style="overflow-x: hidden">
+              <div class='info px-4'>
+                <p class='name-child-item text-uppercase'>{{this.name}}</p>
+                <p class='des'>{{this.description}}</p>
+                <p class='prices'>${{this.prices}}</p>
               </div>
+              <img src='{{this.img}}' alt='' style='width: 70%;' class='img-item' />
+            </div>
             {{/each}}
           </div>
         </div>
@@ -186,7 +134,4 @@
 </form>
 {{! script }}
 <script type='text/javascript' src='/public/javascript/order.js'></script>
-<script
-  type='text/javascript'
-  src='/public/javascript/deleteProductOrder.js'
-></script>
+<script type='text/javascript' src='/public/javascript/deleteProductOrder.js'></script>
