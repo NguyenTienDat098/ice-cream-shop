@@ -8,6 +8,20 @@ const db = require('./configs/db/config');
 const passport = require('passport');
 const localStrategy = require('passport-local').Strategy;
 const session = require('express-session');
+const MongoDBStore = require('connect-mongodb-session')(session);
+
+
+// store mongoDB
+const store = new MongoDBStore({
+  uri: 'mongodb+srv://NguyenTienDat098:hetpass123@cluster0.tiqp7q4.mongodb.net/my_ice_cream_database?retryWrites=true&w=majority',
+  collection: 'mySessions'
+});
+
+// Catch errors
+store.on('error', function (error) {
+  console.log(error);
+});
+
 
 // connet database
 db.connect();
@@ -31,14 +45,14 @@ app.use(
     saveUninitialized: true,
     secret: 'somesecret',
     cookie: {
-      secure: true,
       maxAge: 60000
     },
-    store: new RedisStore(),
+    store: store,
     saveUninitialized: true,
     resave: false
   })
 );
+
 
 app.use(express.json());
 app.use(
