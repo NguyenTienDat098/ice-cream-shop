@@ -28,9 +28,15 @@ app.use('/public', express.static(path.join(__dirname + '/public')));
 
 app.use(
   session({
-    resave: true,
     saveUninitialized: true,
     secret: 'somesecret',
+    cookie: {
+      secure: true,
+      maxAge: 60000
+    },
+    store: new RedisStore(),
+    saveUninitialized: true,
+    resave: false
   })
 );
 
